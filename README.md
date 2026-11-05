@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# RAHMAN MOBILOGRAPH
 
-## Getting Started
-
-First, run the development server:
+Portfolio site for a mobile videographer in Almaty. Next.js (App Router) · React · TypeScript · Tailwind CSS 4 · Framer Motion · Lucide.
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev     # http://localhost:3000
+npm run build   # production build
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Languages
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The site is available in English, Russian and Kazakh: `/en`, `/ru`, `/kk`.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `/` redirects to the visitor's language: first a saved choice (the `NEXT_LOCALE` cookie set by the EN / RU / KZ switcher), then the browser's `Accept-Language`, and English otherwise. See [`src/proxy.ts`](src/proxy.ts).
+- All texts are in [`src/i18n/dictionaries/`](src/i18n/dictionaries/): `en.ts`, `ru.ts`, `kk.ts`. English defines the structure. If a key is missing in another language, `npm run build` fails.
+- Anton and Instrument Serif have no Cyrillic, so Russian and Kazakh pages use Oswald and Cormorant Garamond for headings. The brand lettering (`font-brand`) stays Anton everywhere.
 
-## Learn More
+## Editing content
 
-To learn more about Next.js, take a look at the following resources:
+Texts: see the dictionaries above. Everything that doesn't depend on language is in [`src/lib/data.ts`](src/lib/data.ts):
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Portfolio**: add real work by setting `video` (e.g. `/videos/restaurant-01.mp4`) and/or `poster` on a project. Put the files in `public/videos` and `public/images`. Cards switch from the placeholder to the real media automatically, and videos play muted on hover. An optional `title: { en, ru, kk }` replaces the generic "Restaurant Reel 01" name.
+- **Pricing**: set `priceFrom` (in tenge, e.g. `30000`) on a plan. It is shown as "from 30 000 ₸" / "от 30 000 ₸" / "30 000 ₸-ден бастап". `null` shows "On request".
+- **Contacts**: only Instagram is listed (`site.instagram`).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The hero portrait is `public/images/rahman.jpg`.
 
-## Deploy on Vercel
+## Deploy
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Set `NEXT_PUBLIC_SITE_URL` to the real domain so social preview images resolve correctly.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Structure
+
+```
+src/
+  app/[lang]/     localized root layout + page; global styles in app/globals.css
+  proxy.ts        "/" → "/en" | "/ru" | "/kk"
+  i18n/           locale config, dictionaries (en, ru, kk), getDictionary
+  components/
+    layout/       Header (+ mobile menu), LanguageSwitcher, Footer, MotionProvider
+    sections/     Hero, About, Portfolio, Services, Process, Pricing, Contact
+    portfolio/    ProjectCard
+    ui/           Reveal, SectionHeading, ButtonLink, Marquee, Timecode, FitText, …
+  hooks/          useActiveSection, useFitText, useSkipIntro
+  lib/            data.ts (language-independent config), motion.ts (easing & variants)
+```

@@ -1,7 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // Hide the floating "N" dev badge (it never appears in production anyway).
+  devIndicators: false,
   cacheComponents: true,
   partialPrefetching: true,
   turbopack: {
