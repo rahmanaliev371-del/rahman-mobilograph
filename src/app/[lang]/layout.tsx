@@ -45,6 +45,17 @@ const cormorant = Cormorant_Garamond({
   preload: false,
 });
 
+/**
+ * Absolute site address for social previews and canonical links.
+ * NEXT_PUBLIC_SITE_URL wins if set; on Vercel the production domain is provided
+ * automatically (and follows a custom domain once one is added).
+ */
+function siteUrl() {
+  if (process.env.NEXT_PUBLIC_SITE_URL) return process.env.NEXT_PUBLIC_SITE_URL;
+  if (process.env.VERCEL_PROJECT_PRODUCTION_URL) return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
+  return "http://localhost:3000";
+}
+
 export function generateStaticParams() {
   return locales.map((lang) => ({ lang }));
 }
@@ -55,8 +66,7 @@ export async function generateMetadata({ params }: LayoutProps<"/[lang]">): Prom
   const t = await getDictionary(lang);
 
   return {
-    // Set NEXT_PUBLIC_SITE_URL to the real domain once the site is deployed.
-    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
+    metadataBase: new URL(siteUrl()),
     title: t.meta.title,
     description: t.meta.description,
     alternates: {

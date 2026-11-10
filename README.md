@@ -29,7 +29,7 @@ The hero portrait is `public/images/rahman.png`.
 
 ## Deploy
 
-Set `NEXT_PUBLIC_SITE_URL` to the real domain so social preview images resolve correctly.
+Hosted on Vercel: https://rahman-mobilograph-nine.vercel.app — every push to `main` redeploys. The site address for social previews comes from Vercel automatically (`VERCEL_PROJECT_PRODUCTION_URL`); set `NEXT_PUBLIC_SITE_URL` only to override it.
 
 ## Structure
 
