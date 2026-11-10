@@ -66,7 +66,7 @@ export async function generateMetadata({ params }: LayoutProps<"/[lang]">): Prom
     openGraph: {
       title: site.brand,
       description: t.meta.description,
-      images: ["/images/rahman.jpg"],
+      images: ["/images/rahman.png"],
       locale: ogLocales[lang],
       type: "website",
     },

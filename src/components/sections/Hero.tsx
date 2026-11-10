@@ -89,7 +89,7 @@ export function Hero({ t }: { t: Dictionary }) {
           <div className="relative size-full overflow-hidden">
             <motion.div style={{ y: photoY, scale: photoScale }} className="absolute inset-0">
               <Image
-                src="/images/rahman.jpg"
+                src="/images/rahman.png"
                 alt={t.hero.portraitAlt}
                 fill
                 preload

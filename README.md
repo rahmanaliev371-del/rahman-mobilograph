@@ -22,10 +22,10 @@ The site is available in English, Russian and Kazakh: `/en`, `/ru`, `/kk`.
 Texts: see the dictionaries above. Everything that doesn't depend on language is in [`src/lib/data.ts`](src/lib/data.ts):
 
 - **Portfolio**: add real work by setting `video` (e.g. `/videos/restaurant-01.mp4`) and/or `poster` on a project. Put the files in `public/videos` and `public/images`. Cards switch from the placeholder to the real media automatically, and videos play muted on hover. An optional `title: { en, ru, kk }` replaces the generic "Restaurant Reel 01" name.
-- **Pricing**: set `priceFrom` (in tenge, e.g. `30000`) on a plan. It is shown as "from 30 000 ₸" / "от 30 000 ₸" / "30 000 ₸-ден бастап". `null` shows "On request".
-- **Contacts**: only Instagram is listed (`site.instagram`).
+- **Pricing**: set `priceFrom` (in tenge, e.g. `30000`) on a plan. It is shown as "from 30 000 tenge" / "от 30 000 тенге" / "30 000 теңгеден бастап". `null` shows "On request".
+- **Contacts**: WhatsApp, Instagram and TikTok are in `site` (`whatsapp`, `instagram`, `tiktok`). "Book a shoot" and the pricing buttons open WhatsApp with a pre-filled message from the dictionaries.
 
-The hero portrait is `public/images/rahman.jpg`.
+The hero portrait is `public/images/rahman.png`.
 
 ## Deploy
 

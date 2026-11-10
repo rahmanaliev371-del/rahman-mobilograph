@@ -35,7 +35,7 @@ const en = {
       "Mobile videographer based in Almaty. Reels, events, weddings and promo videos — filmed, edited and color graded with a cinematic eye.",
     viewWork: "View work",
     scroll: "Scroll",
-    portraitAlt: "Rahman, mobile videographer, standing in the mountains near Almaty",
+    portraitAlt: "Rahman, mobile videographer — black and white portrait",
     portraitLabel: "Portrait",
   },
   about: {
