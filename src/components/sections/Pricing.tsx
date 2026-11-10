@@ -51,14 +51,7 @@ export function Pricing({ t }: { t: Dictionary }) {
                     {copy.summary}
                   </p>
 
-                  <div className={`my-8 border-y py-6 ${featured ? "border-ink/10" : "border-line"}`}>
-                    <p className="font-serif text-4xl italic">{price ?? pricing.onRequest}</p>
-                    {price === null ? (
-                      <p className={`mt-1 text-xs ${featured ? "text-ink/50" : "text-dim"}`}>{pricing.quoted}</p>
-                    ) : null}
-                  </div>
-
-                  <ul className="flex-1 space-y-3.5">
+                  <ul className={`mt-8 flex-1 space-y-3.5 border-t pt-8 ${featured ? "border-ink/10" : "border-line"}`}>
                     {copy.includes.map((item) => (
                       <li key={item} className="flex items-start gap-3 text-sm">
                         <Check size={16} className={`mt-0.5 shrink-0 ${featured ? "text-ink/60" : "text-mute"}`} />
@@ -67,11 +60,19 @@ export function Pricing({ t }: { t: Dictionary }) {
                     ))}
                   </ul>
 
+                  {/* Price sits between what's included and the call to action */}
+                  <div className={`mt-10 border-t pt-6 ${featured ? "border-ink/10" : "border-line"}`}>
+                    <p className="font-serif text-4xl italic">{price ?? pricing.onRequest}</p>
+                    {price === null ? (
+                      <p className={`mt-1 text-xs ${featured ? "text-ink/50" : "text-dim"}`}>{pricing.quoted}</p>
+                    ) : null}
+                  </div>
+
                   <a
                     href={whatsappUrl(t.contact.whatsappMessage)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`mt-10 inline-flex items-center justify-between gap-4 rounded-full px-6 py-4 text-sm font-medium transition-colors duration-500 ${
+                    className={`mt-6 inline-flex items-center justify-between gap-4 rounded-full px-6 py-4 text-sm font-medium transition-colors duration-500 ${
                       featured
                         ? "bg-ink text-paper hover:bg-ink-raised"
                         : "border border-white/15 hover:border-paper hover:bg-paper hover:text-ink"

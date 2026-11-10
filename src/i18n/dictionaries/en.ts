@@ -30,7 +30,7 @@ const en = {
   },
   hero: {
     role: "Mobile videographer",
-    tagline: "Cinematic stories, shot on a phone.",
+    tagline: "Cinematic stories, shot on a phone in Almaty.",
     intro:
       "Mobile videographer based in Almaty. Reels, events, weddings and promo videos — filmed, edited and color graded with a cinematic eye.",
     viewWork: "View work",
@@ -44,20 +44,6 @@ const en = {
     accent: "the lens",
     statement:
       "I'm Rahman — a mobile videographer from Almaty. I believe a phone in the right hands is a cinema camera. I film reels, events and promo videos with attention to light, rhythm and atmosphere — so a place, a product or a day feels on screen the way it felt in person.",
-    facts: {
-      name: "Name",
-      basedIn: "Based in",
-      shootsOn: "Shoots on",
-      shootsOnValue: "Smartphone",
-      formats: "Formats",
-      formatsValue: "Vertical 9:16 · Horizontal 16:9",
-      instagram: "Instagram",
-    },
-    principles: [
-      { title: "Light first", text: "Every frame starts with where the light falls and how it shapes the subject." },
-      { title: "Story over effects", text: "Transitions and tricks serve the idea — they never replace it." },
-      { title: "Made for the feed", text: "Framed vertically, paced for attention, graded to stand out while scrolling." },
-    ],
   },
   portfolio: {
     label: "Portfolio",
@@ -160,15 +146,15 @@ const en = {
   },
   pricing: {
     label: "Pricing",
-    title: "Simple",
-    accent: "packages",
+    title: "Choose",
+    accent: "your format",
     aside:
-      "Every project is different, so the final price is agreed after a short brief. Send your idea on WhatsApp or Instagram and get an estimate.",
+      "Prices are starting points — the final cost depends on the task. Send your idea on WhatsApp or Instagram and get an exact estimate.",
     package: "Package",
     onRequest: "On request",
     quoted: "Quoted individually",
     /** `{price}` is replaced with the formatted amount. */
-    priceFrom: "from {price} ₸",
+    priceFrom: "from {price} tenge",
     cta: "Discuss a project",
     plans: {
       single: {

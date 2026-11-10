@@ -106,7 +106,7 @@ export const pricingPlans: {
   priceFrom: number | null;
   featured?: boolean;
 }[] = [
-  { key: "single", priceFrom: null },
-  { key: "pack", priceFrom: null, featured: true },
-  { key: "event", priceFrom: null },
+  { key: "single", priceFrom: 10000 },
+  { key: "pack", priceFrom: 15000, featured: true },
+  { key: "event", priceFrom: 25000 },
 ];
